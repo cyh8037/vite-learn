@@ -9,20 +9,35 @@
     "preview": "vite preview",
     "lint": "npm run lint:script && npm run lint:style",
     "lint:script": "eslint --ext .js,.jsx,.ts,.tsx,.cjs,.vue --fix --quiet ./",
-    "lint:style": "stylelint --fix \"src/**/*.{css,scss,vue}\""
+    "lint:style": "stylelint --fix \"src/**/*.{css,scss,vue}\"",
+    "postinstall": "husky install"
+  },
+  "lint-staged": {
+    "**/*.{.js,.jsx,.ts,.tsx,.cjs,.vue}": [
+      "npm run lint:script",
+      "git add ."
+    ],
+    "**/*.{css,scss,vue}": [
+      "npm run lint:style",
+      "git add ."
+    ]
   },
   "dependencies": {
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@types/node": "^18.7.15",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "@vitejs/plugin-vue": "^3.0.3",
     "autoprefixer": "^10.4.8",
+    "commitlint": "^17.1.2",
     "eslint": "^8.23.0",
     "eslint-plugin-vue": "^9.4.0",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "postcss": "^8.4.16",
     "postcss-html": "^1.5.0",
     "sass": "^1.54.8",
