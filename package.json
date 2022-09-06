@@ -10,7 +10,7 @@
     "lint": "npm run lint:script && npm run lint:style",
     "lint:script": "eslint --ext .js,.jsx,.ts,.tsx,.cjs,.vue --fix --quiet ./",
     "lint:style": "stylelint --fix \"src/**/*.{css,scss,vue}\"",
-    "postinstall": "husky install"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "**/*.{.js,.jsx,.ts,.tsx,.cjs,.vue}": [
