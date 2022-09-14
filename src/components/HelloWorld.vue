@@ -1,16 +1,18 @@
 <script setup lang="ts">
-defineProps<{ msg: string }>()
+// 引入svg组件
+import IconComponent from '@assets/vue.svg?component'
 </script>
 
 <template>
-  <h1 class="title">{{ msg }}</h1>
+  <div class="wrap">
+    <IconComponent />
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.title {
-  position: relative;
-  color: $theme-color;
-  text-decoration: dashed;
-  background-color: pink;
+.wrap {
+  width: 100px;
+  height: 100px;
+  background-image: url("/vite.svg");
 }
 </style>
