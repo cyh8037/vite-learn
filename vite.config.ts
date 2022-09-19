@@ -23,6 +23,21 @@ export default defineConfig({
   // 手动指定项目根目录位置
   // root: path.join(__dirname, 'src'),
   base: isProduction ? CDN_URL : '/',
+  optimizeDeps: {
+    // 预构建入口文件
+    // entries: ['./src/main.ts'],
+    // 强制进行预构建的依赖
+    // 针对动态import时的场景，可能会二次预构建（成本比较大，会把预构建的流程重新运行一遍，且会刷新页面并重新请求所有模块
+    // 会拖慢应用加载速度），因此可以通过include进行提前声明
+    include: ['vue'],
+    // 与include相对，将依赖从预构建中排除。注意：依赖包是否具有esm格式
+    exclude: [],
+    // 自定义esbuild配置
+    esbuildOptions: {
+      // 加入esbuild插件
+      plugins: []
+    }
+  },
   resolve: {
     alias: {
       '@public': path.join(__dirname, 'public'),
