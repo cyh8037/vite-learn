@@ -1,3 +1,4 @@
 **/*.d.ts
 /dist
 /src/plugin
+/src/rollup
