@@ -9,6 +9,7 @@ import viteEslint from 'vite-plugin-eslint'
 import svgLoader from 'vite-svg-loader'
 import viteImagemin from 'vite-plugin-imagemin'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // 全局scss文件的路径
 // 用normalizePath解决window下的路径问题
@@ -53,6 +54,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    vueJsx(),
     svgLoader({
       defaultImport: 'url'
     }),
